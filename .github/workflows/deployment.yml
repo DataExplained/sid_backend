@@ -26,5 +26,5 @@ jobs:
           REPOSITORY: sid_backend
           IMAGE_TAG: ${{ github.sha }}
         run: |
-          docker build -t 1108123/sidstar-sidstar-backend:Latest .
-          docker push $1108123/sidstar-sidstar-backend:Latest .
+          docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG .
+          docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
