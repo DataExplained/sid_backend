@@ -26,6 +26,6 @@ jobs:
           REPOSITORY: sid_backend
           IMAGE_TAG: ${{ github.sha }}
         run: |
-          docker build -t sid_backend .
-          docker tag sid_backend:latest 675735647272.dkr.ecr.ap-southeast-1.amazonaws.com/sid_backend:latest
-          docker push 675735647272.dkr.ecr.ap-southeast-1.amazonaws.com/sid_backend:latest
+          cd Backend_Sid
+          docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG .
+          docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
