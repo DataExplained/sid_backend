@@ -1,0 +1,16 @@
+name: sidProjectContainer
+
+on: [push]
+
+jobs:
+  run-container-command:
+    runs-on: ubuntu-latest
+    services:
+      sidstar-backend:
+        image: 1108123/sidstar-sidstar-backend
+        ports:
+          - "8081:80"
+
+    steps:
+      - name: test API 1
+        run: 'curl -X POST http://localhost:8081/api/Airport -H ''Content-Type: application/json'' -d '' {"AirportName": "WSSS", "authetication" :${{secrets.Authkey}}}'''
